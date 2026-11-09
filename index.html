@@ -1,0 +1,153 @@
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>ConnectX - Micro Blogging</title>
+    <link rel="stylesheet" href="style.css">
+    <link rel="stylesheet"
+      href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css">
+</head>
+<body>
+
+    <!-- LOGIN / REGISTER -->
+    <div class="auth-container" id="authPage">
+        <div class="auth-box">
+            <h1>Connect<span>X</span></h1>
+            <p>Connect with people and share your thoughts.</p>
+
+            <div class="auth-tabs">
+                <button id="loginTab" class="active">Login</button>
+                <button id="registerTab">Register</button>
+            </div>
+
+            <form id="loginForm">
+                <input type="text" id="loginUsername"
+                       placeholder="Username" required>
+                <input type="password" id="loginPassword"
+                       placeholder="Password" required>
+                <button type="submit">Login</button>
+            </form>
+
+            <form id="registerForm" class="hidden">
+                <input type="text" id="regName"
+                       placeholder="Full Name" required>
+                <input type="text" id="regUsername"
+                       placeholder="Choose Username" required>
+                <input type="password" id="regPassword"
+                       placeholder="Create Password" required>
+                <button type="submit">Create Account</button>
+            </form>
+
+            <p id="authMessage"></p>
+        </div>
+    </div>
+
+    <!-- MAIN APPLICATION -->
+    <div class="app hidden" id="appPage">
+
+        <!-- SIDEBAR -->
+        <aside class="sidebar">
+            <h1 class="logo">Connect<span>X</span></h1>
+
+            <nav>
+                <button class="nav-item active" data-page="home">
+                    <i class="fas fa-home"></i> Home
+                </button>
+
+                <button class="nav-item" data-page="discover">
+                    <i class="fas fa-search"></i> Discover
+                </button>
+
+                <button class="nav-item" data-page="profile">
+                    <i class="fas fa-user"></i> My Profile
+                </button>
+            </nav>
+
+            <button class="logout" id="logoutBtn">
+                <i class="fas fa-sign-out-alt"></i> Logout
+            </button>
+        </aside>
+
+        <!-- MAIN FEED -->
+        <main class="main-content">
+
+            <header class="topbar">
+                <h2 id="pageTitle">Home Feed</h2>
+                <div class="current-user" id="currentUser"></div>
+            </header>
+
+            <!-- HOME PAGE -->
+            <section id="homePage">
+
+                <div class="create-post">
+                    <h3>What's happening?</h3>
+                    <textarea id="postContent"
+                        placeholder="Share your thoughts..."></textarea>
+                    <div class="post-footer">
+                        <span>Share your ideas with followers!</span>
+                        <button id="postBtn">
+                            <i class="fas fa-paper-plane"></i> Post
+                        </button>
+                    </div>
+                </div>
+
+                <div id="feed"></div>
+            </section>
+
+            <!-- DISCOVER PAGE -->
+            <section id="discoverPage" class="hidden">
+                <div class="discover-box">
+                    <h3>Discover People</h3>
+                    <input type="text" id="searchUser"
+                        placeholder="Search users by name or username...">
+                </div>
+                <div id="usersList"></div>
+            </section>
+
+            <!-- PROFILE PAGE -->
+            <section id="profilePage" class="hidden">
+                <div class="profile-header">
+                    <div class="avatar large" id="profileAvatar">H</div>
+                    <h2 id="profileName"></h2>
+                    <p id="profileUsername"></p>
+
+                    <div class="profile-stats">
+                        <div><strong id="postCount">0</strong>
+                            <span>Posts</span></div>
+                        <div><strong id="followingCount">0</strong>
+                            <span>Following</span></div>
+                        <div><strong id="followerCount">0</strong>
+                            <span>Followers</span></div>
+                    </div>
+                </div>
+
+                <h3 class="profile-post-heading">My Posts</h3>
+                <div id="profilePosts"></div>
+            </section>
+
+        </main>
+
+        <!-- RIGHT SIDEBAR -->
+        <aside class="right-sidebar">
+            <div class="suggestions">
+                <h3>Who to follow?</h3>
+                <div id="suggestionsList"></div>
+                <button class="explore-btn" data-page="discover">
+                    Explore more people
+                </button>
+            </div>
+
+            <div class="about-card">
+                <h3>About ConnectX</h3>
+                <p>A place to connect, share thoughts and build communities.</p>
+                <p>© 2026 ConnectX</p>
+            </div>
+        </aside>
+
+    </div>
+
+    <script src="script.js"></script>
+</body>
+</html>
